@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(
     tableName = "categoria",
-    indices = [Index(value = ["nombre_categorias"], unique = true)]
+    indices = [Index(value = ["nombre_categoria"], unique = true)]
 )
 
 

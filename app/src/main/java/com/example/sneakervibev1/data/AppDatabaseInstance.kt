@@ -5,17 +5,27 @@ import androidx.room.Room
 
 object AppDatabaseInstance {
     @Volatile
-    private var INSTANCE: SneakerVibeBD? = null
+    private var INSTANCE: SneakerVibeDB? = null
 
-    fun getDatabase(context: Context): SneakerVibeBD {
-        return INSTANCE ?: synchronized(this) {
-            val instance = Room.databaseBuilder(
+    fun getDatabase(context: Context): SneakerVibeDB =
+        INSTANCE ?: synchronized(this) {
+            Room.databaseBuilder(
                 context.applicationContext,
-                SneakerVibeBD::class.java,
+                SneakerVibeDB::class.java,
                 "sneakervibe.db"
-            ).build()
-            INSTANCE = instance
-            instance
+            )
+                .addCallback(object : androidx.room.RoomDatabase.Callback() {
+                    override fun onCreate(db: androidx.sqlite.db.SupportSQLiteDatabase) {
+                        super.onCreate(db)
+                        // Cuando la base se crea por primera vez, ejecutamos el seeder
+                        INSTANCE?.let { DatabaseSeeder.seed(it) }
+                    }
+                })
+                .build()
+                .also {
+                    INSTANCE = it
+                    // Si ya existía (no es la primera vez), también aseguramos seed
+                    DatabaseSeeder.seed(it)
+                }
         }
-    }
 }

@@ -7,6 +7,7 @@ import androidx.room.CoroutinesRoom;
 import androidx.room.EntityInsertionAdapter;
 import androidx.room.RoomDatabase;
 import androidx.room.RoomSQLiteQuery;
+import androidx.room.SharedSQLiteStatement;
 import androidx.room.util.CursorUtil;
 import androidx.room.util.DBUtil;
 import androidx.sqlite.db.SupportSQLiteStatement;
@@ -31,6 +32,8 @@ public final class ProductoDao_Impl implements ProductoDao {
   private final RoomDatabase __db;
 
   private final EntityInsertionAdapter<Producto> __insertionAdapterOfProducto;
+
+  private final SharedSQLiteStatement __preparedStmtOfActualizarStock;
 
   public ProductoDao_Impl(@NonNull final RoomDatabase __db) {
     this.__db = __db;
@@ -59,11 +62,18 @@ public final class ProductoDao_Impl implements ProductoDao {
         statement.bindLong(8, _tmp);
       }
     };
+    this.__preparedStmtOfActualizarStock = new SharedSQLiteStatement(__db) {
+      @Override
+      @NonNull
+      public String createQuery() {
+        final String _query = "UPDATE producto SET stock = ? WHERE id_producto = ?";
+        return _query;
+      }
+    };
   }
 
   @Override
-  public Object insertarProducto(final Producto producto,
-      final Continuation<? super Unit> $completion) {
+  public Object insertar(final Producto producto, final Continuation<? super Unit> $completion) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -81,8 +91,36 @@ public final class ProductoDao_Impl implements ProductoDao {
   }
 
   @Override
-  public Object obtenerProducto(final Continuation<? super List<Producto>> $completion) {
-    final String _sql = "SELECT * FROM producto";
+  public Object actualizarStock(final int id, final int nuevo,
+      final Continuation<? super Unit> $completion) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      @NonNull
+      public Unit call() throws Exception {
+        final SupportSQLiteStatement _stmt = __preparedStmtOfActualizarStock.acquire();
+        int _argIndex = 1;
+        _stmt.bindLong(_argIndex, nuevo);
+        _argIndex = 2;
+        _stmt.bindLong(_argIndex, id);
+        try {
+          __db.beginTransaction();
+          try {
+            _stmt.executeUpdateDelete();
+            __db.setTransactionSuccessful();
+            return Unit.INSTANCE;
+          } finally {
+            __db.endTransaction();
+          }
+        } finally {
+          __preparedStmtOfActualizarStock.release(_stmt);
+        }
+      }
+    }, $completion);
+  }
+
+  @Override
+  public Object listar(final Continuation<? super List<Producto>> $completion) {
+    final String _sql = "SELECT * FROM producto ORDER BY id_producto DESC";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
     final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
     return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<List<Producto>>() {
@@ -137,12 +175,12 @@ public final class ProductoDao_Impl implements ProductoDao {
   }
 
   @Override
-  public Object obtenerPorCategoria(final int idCategoria,
+  public Object listarPorCategoria(final int idCat,
       final Continuation<? super List<Producto>> $completion) {
-    final String _sql = "SELECT * FROM producto WHERE id_categoria = ?";
+    final String _sql = "SELECT * FROM producto WHERE id_categoria = ? ORDER BY id_producto DESC";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
-    _statement.bindLong(_argIndex, idCategoria);
+    _statement.bindLong(_argIndex, idCat);
     final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
     return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<List<Producto>>() {
       @Override
