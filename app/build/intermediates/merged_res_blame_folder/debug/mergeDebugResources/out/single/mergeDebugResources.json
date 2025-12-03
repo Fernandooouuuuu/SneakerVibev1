@@ -1,162 +1,282 @@
 [
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_lefrance_plateada.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\lefrance_plateada.png"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-xxxhdpi_logo_round.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-xxxhdpi/logo_round.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_accesorio_3.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\accesorio_3.webp"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-anydpi-v26_logo_round.xml.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-anydpi-v26\\logo_round.xml"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-xxxhdpi_logo.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-xxxhdpi/logo.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-xxhdpi_logo.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-xxhdpi\\logo.webp"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-anydpi-v26_logo_round.xml.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-anydpi-v26/logo_round.xml"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-xhdpi_logo_round.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-xhdpi\\logo_round.webp"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/drawable_logo.png.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/drawable/logo.png"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-mdpi_logo_round.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-mdpi\\logo_round.webp"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/drawable_categoria_zapatillas.png.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/drawable/categoria_zapatillas.png"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-hdpi_logo.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-hdpi\\logo.webp"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/drawable_categoria_accesorios.png.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/drawable/categoria_accesorios.png"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-xhdpi_logo.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-xhdpi/logo.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/drawable/ic_launcher_background.xml"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-hdpi_logo_round.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-hdpi/logo_round.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_tn_negra.jpg.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\tn_negra.jpg"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/drawable_categoria_ropa.png.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/drawable/categoria_ropa.png"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_dunk.jpg.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\dunk.jpg"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/drawable_images.png.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/drawable/images.png"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-mdpi_logo_foreground.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-mdpi\\logo_foreground.webp"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_sandalias_adilette_22_cafe.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\sandalias_adilette_22_cafe.png"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-xhdpi_logo_foreground.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-xhdpi/logo_foreground.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-xxhdpi_logo_round.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-xxhdpi\\logo_round.webp"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_campus00s_r3.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\campus00s_r3.png"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-xxxhdpi_logo_foreground.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-xxxhdpi/logo_foreground.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_logo_background.xml.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\logo_background.xml"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-mdpi_logo_foreground.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-mdpi/logo_foreground.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_accesorio_1.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\accesorio_1.webp"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-hdpi_logo_round.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-hdpi\\logo_round.webp"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/xml_data_extraction_rules.xml.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/xml/data_extraction_rules.xml"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_liver.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\liver.png"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/drawable/ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_poleron_n.PNG.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\poleron_n.PNG"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-xxhdpi_logo_foreground.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-xxhdpi/logo_foreground.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_af1.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\af1.png"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-hdpi_logo_foreground.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-hdpi/logo_foreground.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-anydpi-v26_logo.xml.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-anydpi-v26\\logo.xml"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-xxhdpi_logo.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-xxhdpi/logo.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/drawable_logo_background.xml.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/drawable/logo_background.xml"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-xhdpi_logo.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-xhdpi\\logo.webp"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/xml_backup_rules.xml.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/xml/backup_rules.xml"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-xxhdpi_logo_foreground.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-xxhdpi\\logo_foreground.webp"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-xhdpi_logo_round.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-xhdpi/logo_round.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_campus00s_r2.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\campus00s_r2.png"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/drawable_descarga.png.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/drawable/descarga.png"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_auth_bg.jpg.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\auth_bg.jpg"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-mdpi_logo.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-mdpi/logo.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_images.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\images.png"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-mdpi_logo_round.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-mdpi/logo_round.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_gorra_9forty_nyy.jpg.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\gorra_9forty_nyy.jpg"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-anydpi-v26_logo.xml.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-anydpi-v26/logo.xml"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_descarga.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\descarga.png"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-hdpi_logo.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-hdpi/logo.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_logo_nav.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\logo_nav.png"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-xxhdpi_logo_round.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-xxhdpi/logo_round.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-xhdpi_logo_foreground.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-xhdpi\\logo_foreground.webp"
     },
     {
-        "merged": "com.example.sneakervibev1.app-debug-47:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.sneakervibev1.app-main-49:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-xxxhdpi_logo_round.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-xxxhdpi\\logo_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_logo.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\logo.png"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_calcetines2.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\calcetines2.webp"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_zapatillas_index.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\zapatillas_index.png"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\layout_bottom_sheet_agregar_producto.xml.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\layout\\bottom_sheet_agregar_producto.xml"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_megaride_o1_azul.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\megaride_o1_azul.png"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-mdpi_logo.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-mdpi\\logo.webp"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_categoria_accesorios.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\categoria_accesorios.png"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_superstar.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\superstar.png"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_lefrance_negras.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\lefrance_negras.png"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\layout_item_producto.xml.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\layout\\item_producto.xml"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_accesorios_index.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\accesorios_index.png"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_c10.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\c10.png"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_ropa_index.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\ropa_index.png"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-xxxhdpi_logo.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-xxxhdpi\\logo.webp"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_campus00s_r1.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\campus00s_r1.png"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_accesorio_2.jpg.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\accesorio_2.jpg"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-hdpi_logo_foreground.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-hdpi\\logo_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_categoria_ropa.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\categoria_ropa.png"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_tn_azul.jpg.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\tn_azul.jpg"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\layout_fragment_productos.xml.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\layout\\fragment_productos.xml"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_tn_blanca.jpg.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\tn_blanca.jpg"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_lefrance_r.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\lefrance_r.png"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\drawable_categoria_zapatillas.png.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\drawable\\categoria_zapatillas.png"
+    },
+    {
+        "merged": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-debug-61:\\mipmap-xxxhdpi_logo_foreground.webp.flat",
+        "source": "C:\\Users\\galda\\.gradle\\daemon\\8.13\\com.example.sneakervibev1.app-main-63:\\mipmap-xxxhdpi\\logo_foreground.webp"
     }
 ]

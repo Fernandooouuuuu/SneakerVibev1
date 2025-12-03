@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.sneakervibev1.app-mergeDebugResources-45:/values-v30/values-v30.xml",
+            "outputFile": "com.example.sneakervibev1.app-mergeDebugResources-59:/values-v30/values-v30.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Fernando\\.gradle\\caches\\8.13\\transforms\\d8ff5ba5a621c1c9739d20ca2ed1fbf3\\transformed\\material3-release\\res\\values-v30\\values-v30.xml",
+                    "source": "C:\\Users\\galda\\.gradle\\caches\\8.13\\transforms\\d8ff5ba5a621c1c9739d20ca2ed1fbf3\\transformed\\material3-release\\res\\values-v30\\values-v30.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

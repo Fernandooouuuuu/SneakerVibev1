@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">SneakerVibeV1</string>
+
+    <!-- para el FAB y el formulario -->
+    <string name="agregar_producto">Agregar producto</string>
+    <string name="nombre">Nombre</string>
+    <string name="precio_clp">Precio (CLP)</string>
+    <string name="stock">Stock</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="agregar_este_producto">Agregar este producto</string>
 </resources>

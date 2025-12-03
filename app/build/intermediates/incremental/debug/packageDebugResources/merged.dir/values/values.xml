@@ -7,6 +7,12 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
+    <string name="agregar_este_producto">Agregar este producto</string>
+    <string name="agregar_producto">Agregar producto</string>
     <string name="app_name">SneakerVibeV1</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="nombre">Nombre</string>
+    <string name="precio_clp">Precio (CLP)</string>
+    <string name="stock">Stock</string>
     <style name="Theme.SneakerVibeV1" parent="android:Theme.Material.Light.NoActionBar"/>
 </resources>
