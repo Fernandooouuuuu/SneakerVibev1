@@ -28,13 +28,15 @@ import androidx.navigation.NavController
 import com.example.sneakervibev1.R
 import com.example.sneakervibev1.data.AppDatabaseInstance
 import com.example.sneakervibev1.data.entidades.Producto
-import com.example.sneakervibev1.data.repos.ProductoRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.text.NumberFormat
 import java.util.Currency
 import java.util.Locale
+import com.example.sneakervibev1.data.repository.ProductoRepository
+import kotlinx.coroutines.withContext
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -53,11 +55,12 @@ fun Productos(navController: NavController) {
     // estado de animación de éxito
     var showSuccess by remember { mutableStateOf(false) }
 
-    // Cargar productos desde Room
+    // 👉 nuevo: repo que usa Retrofit (8081)
+    val repo = remember { ProductoRepository() }
+
+    // Cargar productos desde la API
     LaunchedEffect(Unit) {
-        val db = AppDatabaseInstance.getDatabase(ctx)
-        val repo = ProductoRepository(db)
-        productos = withContext(Dispatchers.IO) { repo.listar() }
+        productos = repo.listarProductos()
     }
 
     if (showSheet) {
@@ -114,7 +117,7 @@ fun Productos(navController: NavController) {
 
                         scope.launch {
                             val db = AppDatabaseInstance.getDatabase(ctx)
-                            val repo = ProductoRepository(db)
+                            //val repo = ProductoRepository(db)
 
                             // Usa 1 como categoría por defecto para evitar nulls (ajusta si necesitas).
                             val idCategoriaPorDefecto = 1
@@ -129,8 +132,8 @@ fun Productos(navController: NavController) {
                                 activo = true
                             )
 
-                            withContext(Dispatchers.IO) { repo.insertar(nuevo) }
-                            productos = withContext(Dispatchers.IO) { repo.listar() }
+                            //withContext(Dispatchers.IO) { repo.insertar(nuevo) }
+                            //productos = withContext(Dispatchers.IO) { repo.listar() }
 
                             nombre = ""; precio = ""; stock = ""; errores = emptyMap()
                             showSheet = false

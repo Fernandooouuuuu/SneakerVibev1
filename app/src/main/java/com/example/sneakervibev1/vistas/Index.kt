@@ -39,9 +39,11 @@ import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -60,17 +62,58 @@ import com.example.sneakervibev1.navegacion.AppVistas
 import com.example.sneakervibev1.ui.model.CategoriaItem
 import java.nio.file.WatchEvent
 
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.sneakervibev1.ui.usuarios.UsuariosViewModel
 
+
+
+//@Composable
+//fun Index(navController: NavController){
+ //   MaterialTheme {
+//        Scaffold (
+ //           modifier = Modifier.fillMaxSize()
+  //      ){ innerPadding ->
+  //          bodyComponenteIndex(
+  //              modifier = Modifier.padding(innerPadding),
+  //              navController
+    //        )
+    //    }
+   // }
+//}
 @Composable
-fun Index(navController: NavController){
-    MaterialTheme {
-        Scaffold (
-            modifier = Modifier.fillMaxSize()
-        ){ innerPadding ->
-            bodyComponenteIndex(
-                modifier = Modifier.padding(innerPadding),
-                navController
-            )
+fun Index(navController: NavController, viewModel: UsuariosViewModel = viewModel()) {
+
+    val usuarios = viewModel.usuarios.observeAsState(emptyList())
+    val error = viewModel.error.observeAsState()
+
+    // Llamar a la API una vez al entrar
+    LaunchedEffect (Unit) {
+        viewModel.cargarUsuarios()
+    }
+
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Top
+    ) {
+        Text("Inicio")
+        Spacer(modifier = Modifier.padding(top = 10.dp))
+
+        // Aquí sigues usando tu UI antigua
+        formularioIndex(navController)
+
+        // Y abajo mostramos algo simple con los usuarios
+        Spacer(modifier = Modifier.height(16.dp))
+
+        error.value?.let { msg ->
+            Text(text = "Error: $msg")
+        }
+
+        if (usuarios.value.isNotEmpty()) {
+            Text("Usuarios desde la API:")
+            usuarios.value.forEach {
+                Text("- ${it.nombre} ${it.apellido} (${it.email})")
+            }
         }
     }
 }

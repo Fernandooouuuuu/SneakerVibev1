@@ -44,6 +44,10 @@ import androidx.compose.ui.text.input.KeyboardType // Importación clave
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import com.example.sneakervibev1.R
 
+import com.example.sneakervibev1.data.repository.UsuarioRepository
+import androidx.compose.runtime.rememberCoroutineScope
+import kotlinx.coroutines.launch
+
 
 private fun isEmailValid(email: String): Boolean{
     val regex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$".toRegex()
@@ -112,8 +116,6 @@ fun cargarOutLinedTextField(){
 
 }
 
-
-
 @Composable
 fun formulario(navController: NavController){
 
@@ -124,6 +126,11 @@ fun formulario(navController: NavController){
     val emailError = emailTouched && !isEmailValid(email)
     val passError = passTouched && !isPassValid(pass)
     val formOk = isEmailValid(email) && isPassValid(pass)
+
+    val scope = rememberCoroutineScope()
+    val repo = remember { UsuarioRepository() }
+    var loading by remember { mutableStateOf(false) }
+    var loginError by remember { mutableStateOf<String?>(null) }
 
     LoginLogo()
     Spacer(modifier = Modifier.padding(top = 20.dp))
@@ -149,7 +156,37 @@ fun formulario(navController: NavController){
     Spacer(modifier = Modifier.padding(top = 10.dp))
     recordarBoton()
     Spacer(modifier = Modifier.padding(top = 10.dp))
-    cargarBotonLogin(navController)
+    cargarBotonLogin(
+        habilitado = !loading,
+        cargando = loading
+    ) {
+        emailTouched = true
+        passTouched = true
+
+        if (!formOk) {
+            loginError = "Completa los datos correctamente"
+            return@cargarBotonLogin
+        }
+
+        loading = true
+        loginError = null
+
+        scope.launch {
+            val usuario = repo.login(email, pass)
+            loading = false
+
+            if (usuario != null) {
+                // ✅ encontró usuario en la BD → puede entrar
+                navController.navigate(AppVistas.Index.route) {
+                    popUpTo(AppVistas.Login.route) { inclusive = true }
+                    launchSingleTop = true
+                }
+            } else {
+                // ❌ no coincide con ningún usuario creado
+                loginError = "Usuario o contraseña incorrectos"
+            }
+        }
+    }
     Spacer(modifier = Modifier.padding(top = 20.dp))
     OlvidastePassword()
     BotonRegistro(navController)
@@ -206,14 +243,14 @@ fun CampoPassword(
 }
 
 @Composable
-fun cargarBotonLogin(navController: NavController){
+fun cargarBotonLogin(
+    habilitado: Boolean,
+    cargando: Boolean,
+    onClick: () -> Unit
+) {
     Button(
-        onClick = {
-            navController.navigate(AppVistas.Carga.route) {
-                popUpTo(AppVistas.Login.route){ inclusive = false}
-                launchSingleTop = true
-            }
-        },
+        onClick = onClick,
+        enabled = habilitado && !cargando,
         shape = RectangleShape,
         colors = ButtonDefaults.buttonColors(
             containerColor = Color.Red,
@@ -221,7 +258,7 @@ fun cargarBotonLogin(navController: NavController){
         ),
         modifier = Modifier.width(280.dp)
     ) {
-        Text("Ingresar")
+        Text(if (cargando) "Ingresando..." else "Ingresar")
     }
 }
 
