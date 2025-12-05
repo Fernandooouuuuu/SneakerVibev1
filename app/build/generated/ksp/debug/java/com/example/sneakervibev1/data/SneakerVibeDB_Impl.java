@@ -48,12 +48,12 @@ public final class SneakerVibeDB_Impl extends SneakerVibeDB {
         db.execSQL("CREATE TABLE IF NOT EXISTS `usuario` (`id_usuario` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nombre` TEXT NOT NULL, `correo` TEXT NOT NULL, `password` TEXT NOT NULL, `rol` TEXT NOT NULL, `activo` INTEGER NOT NULL)");
         db.execSQL("CREATE TABLE IF NOT EXISTS `categoria` (`id_categoria` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nombre_categoria` TEXT NOT NULL)");
         db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_categoria_nombre_categoria` ON `categoria` (`nombre_categoria`)");
-        db.execSQL("CREATE TABLE IF NOT EXISTS `producto` (`id_producto` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id_categoria` INTEGER NOT NULL, `nombre_producto` TEXT NOT NULL, `descripcion` TEXT NOT NULL, `precio` REAL NOT NULL, `stock` INTEGER NOT NULL, `imagen` TEXT, `activo` INTEGER NOT NULL, FOREIGN KEY(`id_categoria`) REFERENCES `categoria`(`id_categoria`) ON UPDATE NO ACTION ON DELETE RESTRICT )");
+        db.execSQL("CREATE TABLE IF NOT EXISTS `producto` (`id_producto` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id_categoria` INTEGER NOT NULL, `nombre_producto` TEXT NOT NULL, `descripcion` TEXT NOT NULL, `precio` REAL NOT NULL, `stock` INTEGER NOT NULL, `imagen` TEXT, `activo` INTEGER NOT NULL, `varianteId` INTEGER NOT NULL, FOREIGN KEY(`id_categoria`) REFERENCES `categoria`(`id_categoria`) ON UPDATE NO ACTION ON DELETE RESTRICT )");
         db.execSQL("CREATE INDEX IF NOT EXISTS `index_producto_id_categoria` ON `producto` (`id_categoria`)");
         db.execSQL("CREATE TABLE IF NOT EXISTS `carrito` (`id_carrito` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id_usuario` INTEGER NOT NULL, `creado_en` TEXT NOT NULL, FOREIGN KEY(`id_usuario`) REFERENCES `usuario`(`id_usuario`) ON UPDATE NO ACTION ON DELETE CASCADE )");
         db.execSQL("CREATE TABLE IF NOT EXISTS `detalle_carrito` (`id_detalle` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id_carrito` INTEGER NOT NULL, `id_producto` INTEGER NOT NULL, `cantidad` INTEGER NOT NULL, `subtotal` REAL NOT NULL, FOREIGN KEY(`id_carrito`) REFERENCES `carrito`(`id_carrito`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`id_producto`) REFERENCES `producto`(`id_producto`) ON UPDATE NO ACTION ON DELETE CASCADE )");
         db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '12183b57eb89a076a8383f75073ffd40')");
+        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '62fc3f6ec72461907984919cd9af1170')");
       }
 
       @Override
@@ -136,7 +136,7 @@ public final class SneakerVibeDB_Impl extends SneakerVibeDB {
                   + " Expected:\n" + _infoCategoria + "\n"
                   + " Found:\n" + _existingCategoria);
         }
-        final HashMap<String, TableInfo.Column> _columnsProducto = new HashMap<String, TableInfo.Column>(8);
+        final HashMap<String, TableInfo.Column> _columnsProducto = new HashMap<String, TableInfo.Column>(9);
         _columnsProducto.put("id_producto", new TableInfo.Column("id_producto", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsProducto.put("id_categoria", new TableInfo.Column("id_categoria", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsProducto.put("nombre_producto", new TableInfo.Column("nombre_producto", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -145,6 +145,7 @@ public final class SneakerVibeDB_Impl extends SneakerVibeDB {
         _columnsProducto.put("stock", new TableInfo.Column("stock", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsProducto.put("imagen", new TableInfo.Column("imagen", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsProducto.put("activo", new TableInfo.Column("activo", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsProducto.put("varianteId", new TableInfo.Column("varianteId", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysProducto = new HashSet<TableInfo.ForeignKey>(1);
         _foreignKeysProducto.add(new TableInfo.ForeignKey("categoria", "RESTRICT", "NO ACTION", Arrays.asList("id_categoria"), Arrays.asList("id_categoria")));
         final HashSet<TableInfo.Index> _indicesProducto = new HashSet<TableInfo.Index>(1);
@@ -189,7 +190,7 @@ public final class SneakerVibeDB_Impl extends SneakerVibeDB {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "12183b57eb89a076a8383f75073ffd40", "89672ed8beabcc907c34100680a4c547");
+    }, "62fc3f6ec72461907984919cd9af1170", "c1b189c81f869d37828d7decb0ec58f7");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(config.context).name(config.name).callback(_openCallback).build();
     final SupportSQLiteOpenHelper _helper = config.sqliteOpenHelperFactory.create(_sqliteConfig);
     return _helper;

@@ -38,6 +38,12 @@ import java.text.NumberFormat
 import java.util.Currency
 import java.util.Locale
 
+import com.example.sneakervibev1.data.carrito.CarritoManager
+
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Productos(navController: NavController) {
@@ -56,6 +62,8 @@ fun Productos(navController: NavController) {
     val repo = remember { ProductoRepository() }
 
     val esAdmin = SesionUsuario.usuarioActual?.esAdmin == true
+
+    val snackbarHostState = remember { SnackbarHostState() }
 
     // Cargar productos desde la API
     LaunchedEffect(Unit) {
@@ -169,6 +177,9 @@ fun Productos(navController: NavController) {
 
     // ---------- CONTENIDO PRINCIPAL ----------
     Scaffold(
+        snackbarHost = {
+            SnackbarHost(hostState = snackbarHostState)
+        },
         floatingActionButton = {
             if (esAdmin) {
                 FloatingActionButton(
@@ -202,11 +213,17 @@ fun Productos(navController: NavController) {
                         ProductoCardSimple(
                             p = p,
                             esAdmin = esAdmin,
+                            onAgregarCarrito = {
+                                CarritoManager.agregarProducto(p)
+                                scope.launch {
+                                    snackbarHostState.showSnackbar("Producto agregado al carrito")
+                                }
+                            },
                             onDelete = {
                                 scope.launch {
                                     try {
                                         repo.eliminarProducto(p.id_producto)
-                                        productos = repo.listarProductos()   // recargar lista
+                                        productos = repo.listarProductos()
                                     } catch (e: Exception) {
                                         e.printStackTrace()
                                     }
@@ -215,6 +232,7 @@ fun Productos(navController: NavController) {
                         )
                     }
                 }
+
             }
 
             SuccessCheckOverlay(
@@ -225,10 +243,12 @@ fun Productos(navController: NavController) {
     }
 }
 
+
 @Composable
 private fun ProductoCardSimple(
     p: Producto,
     esAdmin: Boolean,
+    onAgregarCarrito: () -> Unit,
     onDelete: () -> Unit
 ) {
     val ctx = LocalContext.current
@@ -244,12 +264,11 @@ private fun ProductoCardSimple(
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Row(
-            Modifier
+            modifier = Modifier
                 .padding(12.dp)
                 .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
-
             Image(
                 painter = painterResource(id = imagenId),
                 contentDescription = p.nombre_producto,
@@ -265,30 +284,48 @@ private fun ProductoCardSimple(
                     text = p.nombre_producto,
                     style = MaterialTheme.typography.titleMedium
                 )
+
                 Spacer(Modifier.height(4.dp))
+
                 Text(
                     text = nf.format(p.precio),
                     style = MaterialTheme.typography.bodyMedium
                 )
+
                 Spacer(Modifier.height(2.dp))
+
                 Text(
                     text = "Stock: ${p.stock}",
                     style = MaterialTheme.typography.bodySmall
                 )
-            }
 
-            // 🗑 botón solo para admin
-            if (esAdmin) {
-                IconButton(onClick = onDelete) {
-                    Icon(
-                        imageVector = Icons.Default.Delete,
-                        contentDescription = "Eliminar producto"
-                    )
+                Spacer(Modifier.height(8.dp))
+
+                // 👉 Si es admin: botón ELIMINAR
+                // 👉 Si es cliente: botón AGREGAR AL CARRITO
+                if (esAdmin) {
+                    Button(
+                        onClick = onDelete,
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFFD32F2F)
+                        ),
+                        modifier = Modifier.align(Alignment.End)
+                    ) {
+                        Text("Eliminar")
+                    }
+                } else {
+                    Button(
+                        onClick = onAgregarCarrito,
+                        modifier = Modifier.align(Alignment.End)
+                    ) {
+                        Text("Agregar al carrito")
+                    }
                 }
             }
         }
     }
 }
+
 
 @Composable
 private fun SuccessCheckOverlay(

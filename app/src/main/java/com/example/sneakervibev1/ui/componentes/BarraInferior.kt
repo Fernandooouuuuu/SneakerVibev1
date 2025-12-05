@@ -23,7 +23,7 @@ fun BarraInferior(navController: NavController){
     val items = listOf(
         BottonNavItem(AppVistas.Index.route, "Inicio", Icons.Filled.Home),
         BottonNavItem(AppVistas.Productos.route, "Productos", Icons.Filled.Star),
-        BottonNavItem(AppVistas.Carro.route,"Carrito", Icons.Filled.ShoppingCart),
+        BottonNavItem(AppVistas.Carrito.route,"Carrito", Icons.Filled.ShoppingCart),
         BottonNavItem(AppVistas.Nosotros.route, "Nosotros", Icons.Filled.Info),
         BottonNavItem(AppVistas.Login.route, "Login", Icons.Filled.Person)
     )

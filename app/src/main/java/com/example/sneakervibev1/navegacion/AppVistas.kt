@@ -3,7 +3,7 @@ package com.example.sneakervibev1.navegacion;
 
 sealed class AppVistas(val route:String) {
     object Index : AppVistas("Index")
-    object Carro : AppVistas("Carro")
+    object Carrito : AppVistas("Carrito")
     object Admin : AppVistas("Admin")
     object Login : AppVistas("Login")
     object Nosotros : AppVistas("Nosotros")

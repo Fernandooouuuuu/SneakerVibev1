@@ -41,7 +41,7 @@ public final class ProductoDao_Impl implements ProductoDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "INSERT OR REPLACE INTO `producto` (`id_producto`,`id_categoria`,`nombre_producto`,`descripcion`,`precio`,`stock`,`imagen`,`activo`) VALUES (nullif(?, 0),?,?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `producto` (`id_producto`,`id_categoria`,`nombre_producto`,`descripcion`,`precio`,`stock`,`imagen`,`activo`,`varianteId`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -60,6 +60,7 @@ public final class ProductoDao_Impl implements ProductoDao {
         }
         final int _tmp = entity.getActivo() ? 1 : 0;
         statement.bindLong(8, _tmp);
+        statement.bindLong(9, entity.getVarianteId());
       }
     };
     this.__preparedStmtOfActualizarStock = new SharedSQLiteStatement(__db) {
@@ -137,6 +138,7 @@ public final class ProductoDao_Impl implements ProductoDao {
           final int _cursorIndexOfStock = CursorUtil.getColumnIndexOrThrow(_cursor, "stock");
           final int _cursorIndexOfImagen = CursorUtil.getColumnIndexOrThrow(_cursor, "imagen");
           final int _cursorIndexOfActivo = CursorUtil.getColumnIndexOrThrow(_cursor, "activo");
+          final int _cursorIndexOfVarianteId = CursorUtil.getColumnIndexOrThrow(_cursor, "varianteId");
           final List<Producto> _result = new ArrayList<Producto>(_cursor.getCount());
           while (_cursor.moveToNext()) {
             final Producto _item;
@@ -162,7 +164,9 @@ public final class ProductoDao_Impl implements ProductoDao {
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfActivo);
             _tmpActivo = _tmp != 0;
-            _item = new Producto(_tmpId_producto,_tmpId_categoria,_tmpNombre_producto,_tmpDescripcion,_tmpPrecio,_tmpStock,_tmpImagen,_tmpActivo);
+            final int _tmpVarianteId;
+            _tmpVarianteId = _cursor.getInt(_cursorIndexOfVarianteId);
+            _item = new Producto(_tmpId_producto,_tmpId_categoria,_tmpNombre_producto,_tmpDescripcion,_tmpPrecio,_tmpStock,_tmpImagen,_tmpActivo,_tmpVarianteId);
             _result.add(_item);
           }
           return _result;
@@ -196,6 +200,7 @@ public final class ProductoDao_Impl implements ProductoDao {
           final int _cursorIndexOfStock = CursorUtil.getColumnIndexOrThrow(_cursor, "stock");
           final int _cursorIndexOfImagen = CursorUtil.getColumnIndexOrThrow(_cursor, "imagen");
           final int _cursorIndexOfActivo = CursorUtil.getColumnIndexOrThrow(_cursor, "activo");
+          final int _cursorIndexOfVarianteId = CursorUtil.getColumnIndexOrThrow(_cursor, "varianteId");
           final List<Producto> _result = new ArrayList<Producto>(_cursor.getCount());
           while (_cursor.moveToNext()) {
             final Producto _item;
@@ -221,7 +226,9 @@ public final class ProductoDao_Impl implements ProductoDao {
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfActivo);
             _tmpActivo = _tmp != 0;
-            _item = new Producto(_tmpId_producto,_tmpId_categoria,_tmpNombre_producto,_tmpDescripcion,_tmpPrecio,_tmpStock,_tmpImagen,_tmpActivo);
+            final int _tmpVarianteId;
+            _tmpVarianteId = _cursor.getInt(_cursorIndexOfVarianteId);
+            _item = new Producto(_tmpId_producto,_tmpId_categoria,_tmpNombre_producto,_tmpDescripcion,_tmpPrecio,_tmpStock,_tmpImagen,_tmpActivo,_tmpVarianteId);
             _result.add(_item);
           }
           return _result;

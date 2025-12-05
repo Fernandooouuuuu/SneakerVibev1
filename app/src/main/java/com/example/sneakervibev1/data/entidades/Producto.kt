@@ -26,23 +26,26 @@ data class Producto(
     val precio: Double,
     val stock: Int,
     val imagen: String? = null,
-    val activo: Boolean = true
+    val activo: Boolean = true,
+    val varianteId: Int
 )
 
 /**
  * Mapper desde el DTO de la API → entidad Producto de la app
  */
-fun ProductoDto.toProducto(): Producto {        // 👈 EXTENSIÓN SOBRE ProductoDto
-    val v = variantes.firstOrNull()
+fun ProductoDto.toProducto(): Producto {
+    val v = variantes.first()
 
     return Producto(
         id_producto = id.toInt(),
         id_categoria = categoria.id.toInt(),
         nombre_producto = nombre,
         descripcion = descripcion,
-        precio = v?.precio ?: 0.0,
-        stock = v?.stock ?: 0,
-        imagen = v?.imgSrc,
-        activo = true
+        precio = v.precio,
+        stock = v.stock,
+        imagen = v.imgSrc,
+        activo = true,
+        varianteId = v.id.toInt()     // 👈 este es el que va a BoletaItem
     )
 }
+

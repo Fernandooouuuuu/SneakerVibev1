@@ -19,6 +19,8 @@ import com.example.sneakervibev1.vistas.AdminUsuarios
 import com.example.sneakervibev1.vistas.Carga
 import com.example.sneakervibev1.vistas.Nosotros
 import com.example.sneakervibev1.vistas.Registro
+import com.example.sneakervibev1.vistas.Carrito
+import com.example.sneakervibev1.vistas.AdminCompras
 
 @Composable
 fun AppNavegador(){
@@ -51,10 +53,11 @@ fun AppNavegador(){
             composable(AppVistas.Productos.route) { Productos(navController) }
             composable(AppVistas.Nosotros.route) { Nosotros(navController) }
             composable(AppVistas.Carga.route){ Carga(navController) }
+            composable(AppVistas.Carrito.route){Carrito(navController)}
 
             composable("adminUsuarios") {
-                AdminUsuarios(navController)
-            }
+                AdminUsuarios(navController)}
+            composable("adminCompras") { AdminCompras(navController) }
         }
     }
 }

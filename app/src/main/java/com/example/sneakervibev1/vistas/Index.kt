@@ -171,6 +171,13 @@ fun Navbar(navController: NavController, esAdmin: Boolean) {
                             navController.navigate("adminUsuarios")
                         }
                     )
+                    DropdownMenuItem(
+                        text = { Text("Ver compras") },
+                        onClick = {
+                            menuOpen = false
+                            navController.navigate("adminCompras")
+                        }
+                    )
                 }
             }
         }
