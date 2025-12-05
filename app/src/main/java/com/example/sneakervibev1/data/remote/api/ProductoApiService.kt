@@ -2,16 +2,19 @@ package com.example.sneakervibev1.data.remote.api
 
 
 import com.example.sneakervibev1.data.remote.dto.ProductoDto
-import retrofit2.http.GET
-import retrofit2.http.Path
+import com.example.sneakervibev1.data.remote.dto.ProductoRequestDto
+import retrofit2.http.*
+
 
 interface ProductoApiService {
 
     @GET("api/productos")
-    suspend fun getProductos(): List<ProductoDto>
+    suspend fun listarProductos(): List<ProductoDto>
 
-    @GET("api/productos/{id}")
-    suspend fun getProductoPorId(
-        @Path("id") id: Long
-    ): ProductoDto
+    @POST("api/productos")
+    suspend fun crearProducto(@Body producto: ProductoRequestDto): ProductoDto
+
+
+    @DELETE("api/productos/{id}")
+    suspend fun eliminarProducto(@Path("id") id: Long)
 }

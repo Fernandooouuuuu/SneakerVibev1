@@ -6,63 +6,68 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.sneakervibev1.R
-import com.example.sneakervibev1.data.AppDatabaseInstance
+import com.example.sneakervibev1.data.SesionUsuario
 import com.example.sneakervibev1.data.entidades.Producto
-import kotlinx.coroutines.Dispatchers
+import com.example.sneakervibev1.data.repository.ProductoRepository
+import com.example.sneakervibev1.util.obtenerDrawableProducto
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import java.text.NumberFormat
 import java.util.Currency
 import java.util.Locale
-import com.example.sneakervibev1.data.repository.ProductoRepository
-import kotlinx.coroutines.withContext
-
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Productos(navController: NavController) {
-    val ctx = LocalContext.current
     val scope = rememberCoroutineScope()
 
     var productos by remember { mutableStateOf<List<Producto>>(emptyList()) }
-
     var showSheet by remember { mutableStateOf(false) }
     var nombre by remember { mutableStateOf("") }
     var precio by remember { mutableStateOf("") }
     var stock by remember { mutableStateOf("") }
+    var imagen by remember { mutableStateOf("") }
     var errores by remember { mutableStateOf(mapOf<String, String>()) }
-
-    // estado de animación de éxito
     var showSuccess by remember { mutableStateOf(false) }
 
-    // 👉 nuevo: repo que usa Retrofit (8081)
+    // Repo que usa Retrofit (puerto 8081)
     val repo = remember { ProductoRepository() }
+
+    val esAdmin = SesionUsuario.usuarioActual?.esAdmin == true
 
     // Cargar productos desde la API
     LaunchedEffect(Unit) {
-        productos = repo.listarProductos()
+        try {
+            productos = repo.listarProductos()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            productos = emptyList()
+        }
     }
 
+    // ---------- BOTTOM SHEET ----------
     if (showSheet) {
         ModalBottomSheet(onDismissRequest = { showSheet = false }) {
             Column(
@@ -98,65 +103,82 @@ fun Productos(navController: NavController) {
                     supportingText = { errores["stock"]?.let { Text(it) } },
                     modifier = Modifier.fillMaxWidth()
                 )
+                Spacer(Modifier.height(8.dp))
+                OutlinedTextField(
+                    value = imagen,
+                    onValueChange = { imagen = it; errores = errores - "imagen" },
+                    label = { Text("Nombre de imagen (ej: campus00s_r1.png)") },
+                    isError = errores["imagen"] != null,
+                    supportingText = { errores["imagen"]?.let { Text(it) } },
+                    modifier = Modifier.fillMaxWidth()
+                )
 
                 Spacer(Modifier.height(16.dp))
-                Row(horizontalArrangement = Arrangement.End, modifier = Modifier.fillMaxWidth()) {
+
+                Row(
+                    horizontalArrangement = Arrangement.End,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
                     TextButton(onClick = { showSheet = false }) {
                         Text(text = stringResource(id = R.string.cancelar))
                     }
                     Spacer(Modifier.width(8.dp))
-                    Button(onClick = {
-                        val errs = mutableMapOf<String, String>()
-                        val precioNum = precio.toDoubleOrNull()
-                        val stockNum = stock.toIntOrNull()
-                        if (nombre.isBlank()) errs["nombre"] = "Ingresa un nombre"
-                        if (precioNum == null || precioNum <= 0) errs["precio"] = "Precio debe ser > 0"
-                        if (stockNum == null || stockNum < 0) errs["stock"] = "Stock debe ser ≥ 0"
-                        errores = errs
-                        if (errs.isNotEmpty()) return@Button
+                    Button(
+                        onClick = {
+                            val errs = mutableMapOf<String, String>()
+                            val precioNum = precio.toDoubleOrNull()
+                            val stockNum = stock.toIntOrNull()
 
-                        scope.launch {
-                            val db = AppDatabaseInstance.getDatabase(ctx)
-                            //val repo = ProductoRepository(db)
+                            if (nombre.isBlank()) errs["nombre"] = "Ingresa un nombre"
+                            if (precioNum == null || precioNum <= 0) errs["precio"] = "Precio debe ser > 0"
+                            if (stockNum == null || stockNum < 0) errs["stock"] = "Stock debe ser ≥ 0"
+                            if (imagen.isBlank()) errs["imagen"] = "Ingresa el nombre de la imagen"
+                            errores = errs
+                            if (errs.isNotEmpty()) return@Button
 
-                            // Usa 1 como categoría por defecto para evitar nulls (ajusta si necesitas).
-                            val idCategoriaPorDefecto = 1
+                            scope.launch {
+                                try {
+                                    repo.crearProducto(
+                                        nombre = nombre.trim(),
+                                        precio = precioNum!!,
+                                        stock = stockNum!!,
+                                        imgSrc = imagen.trim()
+                                    )
 
-                            val nuevo = Producto(
-                                id_categoria = idCategoriaPorDefecto,
-                                nombre_producto = nombre.trim(),
-                                descripcion = "Agregado manualmente",
-                                precio = precioNum!!,
-                                stock = stockNum!!,
-                                imagen = null,
-                                activo = true
-                            )
+                                    productos = repo.listarProductos()
 
-                            //withContext(Dispatchers.IO) { repo.insertar(nuevo) }
-                            //productos = withContext(Dispatchers.IO) { repo.listar() }
-
-                            nombre = ""; precio = ""; stock = ""; errores = emptyMap()
-                            showSheet = false
-                            showSuccess = true // 🔔 dispara animación de éxito
+                                    nombre = ""
+                                    precio = ""
+                                    stock = ""
+                                    imagen = ""
+                                    errores = emptyMap()
+                                    showSheet = false
+                                    showSuccess = true
+                                } catch (e: Exception) {
+                                    e.printStackTrace()
+                                }
+                            }
                         }
-                    }) {
+                    ) {
                         Text(text = stringResource(id = R.string.agregar_este_producto))
                     }
                 }
-                Spacer(Modifier.height(12.dp))
             }
         }
-    }
+    }   // 👈 cierre del if(showSheet)
 
+    // ---------- CONTENIDO PRINCIPAL ----------
     Scaffold(
         floatingActionButton = {
-            FloatingActionButton(
-                onClick = { showSheet = true }
-            ) {
-                Icon(
-                    Icons.Filled.Add,
-                    contentDescription = stringResource(id = R.string.agregar_producto)
-                )
+            if (esAdmin) {
+                FloatingActionButton(
+                    onClick = { showSheet = true }
+                ) {
+                    Icon(
+                        Icons.Filled.Add,
+                        contentDescription = stringResource(id = R.string.agregar_producto)
+                    )
+                }
             }
         }
     ) { padding ->
@@ -177,12 +199,24 @@ fun Productos(navController: NavController) {
                     verticalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
                     items(productos) { p ->
-                        ProductoCardSimple(p)
+                        ProductoCardSimple(
+                            p = p,
+                            esAdmin = esAdmin,
+                            onDelete = {
+                                scope.launch {
+                                    try {
+                                        repo.eliminarProducto(p.id_producto)
+                                        productos = repo.listarProductos()   // recargar lista
+                                    } catch (e: Exception) {
+                                        e.printStackTrace()
+                                    }
+                                }
+                            }
+                        )
                     }
                 }
             }
 
-            // 🔔 overlay animado de éxito
             SuccessCheckOverlay(
                 visible = showSuccess,
                 onAutoHide = { showSuccess = false }
@@ -192,21 +226,66 @@ fun Productos(navController: NavController) {
 }
 
 @Composable
-private fun ProductoCardSimple(p: Producto) {
+private fun ProductoCardSimple(
+    p: Producto,
+    esAdmin: Boolean,
+    onDelete: () -> Unit
+) {
+    val ctx = LocalContext.current
+    val imagenId = obtenerDrawableProducto(ctx, p.imagen)
+
     val nf = NumberFormat.getCurrencyInstance(Locale("es", "CL")).apply {
         maximumFractionDigits = 0
         currency = Currency.getInstance("CLP")
     }
+
     Card(
         modifier = Modifier.fillMaxWidth(),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
-        Column(Modifier.padding(12.dp)) {
-            Text(text = p.nombre_producto, style = MaterialTheme.typography.titleMedium)
-            Spacer(Modifier.height(4.dp))
-            Text(text = nf.format(p.precio), style = MaterialTheme.typography.bodyMedium)
-            Spacer(Modifier.height(2.dp))
-            Text(text = "Stock: ${p.stock}", style = MaterialTheme.typography.bodySmall)
+        Row(
+            Modifier
+                .padding(12.dp)
+                .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+
+            Image(
+                painter = painterResource(id = imagenId),
+                contentDescription = p.nombre_producto,
+                modifier = Modifier
+                    .size(90.dp)
+                    .padding(end = 12.dp)
+            )
+
+            Column(
+                modifier = Modifier.weight(1f)
+            ) {
+                Text(
+                    text = p.nombre_producto,
+                    style = MaterialTheme.typography.titleMedium
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = nf.format(p.precio),
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Spacer(Modifier.height(2.dp))
+                Text(
+                    text = "Stock: ${p.stock}",
+                    style = MaterialTheme.typography.bodySmall
+                )
+            }
+
+            // 🗑 botón solo para admin
+            if (esAdmin) {
+                IconButton(onClick = onDelete) {
+                    Icon(
+                        imageVector = Icons.Default.Delete,
+                        contentDescription = "Eliminar producto"
+                    )
+                }
+            }
         }
     }
 }
@@ -216,7 +295,6 @@ private fun SuccessCheckOverlay(
     visible: Boolean,
     onAutoHide: () -> Unit
 ) {
-    // Ocúltalo automáticamente después de ~1.2s
     LaunchedEffect(visible) {
         if (visible) {
             kotlinx.coroutines.delay(1200)
@@ -226,15 +304,17 @@ private fun SuccessCheckOverlay(
 
     AnimatedVisibility(
         visible = visible,
-        enter = fadeIn(animationSpec = tween(220)) + scaleIn(initialScale = 0.8f, animationSpec = tween(5000)),
-        exit  = fadeOut(animationSpec = tween(180)) + scaleOut(targetScale = 0.8f, animationSpec = tween(200))
+        enter = fadeIn(animationSpec = tween(220)) +
+                scaleIn(initialScale = 0.8f, animationSpec = tween(500)),
+        exit = fadeOut(animationSpec = tween(180)) +
+                scaleOut(targetScale = 0.8f, animationSpec = tween(200))
     ) {
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
             Surface(
-                color = Color(0xFF2E7D32), // verde éxito
+                color = Color(0xFF2E7D32),
                 contentColor = Color.White,
                 shape = CircleShape,
                 tonalElevation = 6.dp,

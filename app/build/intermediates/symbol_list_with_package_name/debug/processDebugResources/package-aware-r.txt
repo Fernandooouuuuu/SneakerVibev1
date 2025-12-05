@@ -3015,6 +3015,10 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable adidas_trefoil_gorra
+drawable adidas_trefoil_polera
+drawable airforce1_r1
+drawable airmax90_r1
 drawable avd_hide_password
 drawable avd_show_password
 drawable btn_checkbox_checked_mtrl
@@ -3025,6 +3029,7 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable campus00s_r1
 drawable categoria_accesorios
 drawable categoria_ropa
 drawable categoria_zapatillas
@@ -3034,6 +3039,8 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable dunklow_panda
+drawable forumlow_r1
 drawable ic_arrow_back_black_24
 drawable ic_call_answer
 drawable ic_call_answer_low
@@ -3056,6 +3063,7 @@ drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
 drawable images
 drawable indeterminate_static
+drawable jordan1mid_r1
 drawable logo
 drawable logo_background
 drawable m3_avd_hide_password
@@ -3117,6 +3125,10 @@ drawable mtrl_switch_track
 drawable mtrl_switch_track_decoration
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
+drawable nb550_r1
+drawable nike_elemental_mochila
+drawable nike_sportswear_club_poleron
+drawable nike_tech_fleece_pants
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -3130,9 +3142,13 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable placeholder
+drawable puma_slipstream_r1
+drawable samba_r1
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable vans_oldskool_r1
 id ALT
 id BOTTOM_END
 id BOTTOM_START

@@ -46,6 +46,7 @@ import com.example.sneakervibev1.R
 
 import com.example.sneakervibev1.data.repository.UsuarioRepository
 import androidx.compose.runtime.rememberCoroutineScope
+import com.example.sneakervibev1.data.SesionUsuario
 import kotlinx.coroutines.launch
 
 
@@ -176,13 +177,15 @@ fun formulario(navController: NavController){
             loading = false
 
             if (usuario != null) {
-                // ✅ encontró usuario en la BD → puede entrar
+                // 👉 guardar en sesión
+                SesionUsuario.usuarioActual = usuario
+
+                // navegar al Index
                 navController.navigate(AppVistas.Index.route) {
                     popUpTo(AppVistas.Login.route) { inclusive = true }
                     launchSingleTop = true
                 }
             } else {
-                // ❌ no coincide con ningún usuario creado
                 loginError = "Usuario o contraseña incorrectos"
             }
         }

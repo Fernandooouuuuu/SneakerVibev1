@@ -3014,6 +3014,10 @@ int drawable abc_textfield_search_activated_mtrl_alpha 0x7f070074
 int drawable abc_textfield_search_default_mtrl_alpha 0x7f070075
 int drawable abc_textfield_search_material 0x7f070076
 int drawable abc_vector_test 0x7f070077
+int drawable adidas_trefoil_gorra 0x7f0700fb
+int drawable adidas_trefoil_polera 0x7f0700f8
+int drawable airforce1_r1 0x7f0700ef
+int drawable airmax90_r1 0x7f0700f2
 int drawable avd_hide_password 0x7f070078
 int drawable avd_show_password 0x7f070079
 int drawable btn_checkbox_checked_mtrl 0x7f07007a
@@ -3024,6 +3028,7 @@ int drawable btn_radio_off_mtrl 0x7f07007e
 int drawable btn_radio_off_to_on_mtrl_animation 0x7f07007f
 int drawable btn_radio_on_mtrl 0x7f070080
 int drawable btn_radio_on_to_off_mtrl_animation 0x7f070081
+int drawable campus00s_r1 0x7f0700f0
 int drawable categoria_accesorios 0x7f070082
 int drawable categoria_ropa 0x7f070083
 int drawable categoria_zapatillas 0x7f070084
@@ -3033,6 +3038,8 @@ int drawable design_ic_visibility 0x7f070087
 int drawable design_ic_visibility_off 0x7f070088
 int drawable design_password_eye 0x7f070089
 int drawable design_snackbar_background 0x7f07008a
+int drawable dunklow_panda 0x7f0700f3
+int drawable forumlow_r1 0x7f0700f4
 int drawable ic_arrow_back_black_24 0x7f07008b
 int drawable ic_call_answer 0x7f07008c
 int drawable ic_call_answer_low 0x7f07008d
@@ -3055,6 +3062,7 @@ int drawable ic_mtrl_chip_close_circle 0x7f07009d
 int drawable ic_search_black_24 0x7f07009e
 int drawable images 0x7f07009f
 int drawable indeterminate_static 0x7f0700a0
+int drawable jordan1mid_r1 0x7f0700f5
 int drawable logo 0x7f0700a1
 int drawable logo_background 0x7f0700a2
 int drawable m3_avd_hide_password 0x7f0700a3
@@ -3116,6 +3124,10 @@ int drawable mtrl_switch_track 0x7f0700da
 int drawable mtrl_switch_track_decoration 0x7f0700db
 int drawable mtrl_tabs_default_indicator 0x7f0700dc
 int drawable navigation_empty_icon 0x7f0700dd
+int drawable nb550_r1 0x7f0700f6
+int drawable nike_elemental_mochila 0x7f0700fd
+int drawable nike_sportswear_club_poleron 0x7f0700f9
+int drawable nike_tech_fleece_pants 0x7f0700fa
 int drawable notification_action_background 0x7f0700de
 int drawable notification_bg 0x7f0700df
 int drawable notification_bg_low 0x7f0700e0
@@ -3129,9 +3141,13 @@ int drawable notification_template_icon_bg 0x7f0700e7
 int drawable notification_template_icon_low_bg 0x7f0700e8
 int drawable notification_tile_bg 0x7f0700e9
 int drawable notify_panel_notification_icon_bg 0x7f0700ea
+int drawable placeholder 0x7f0700ee
+int drawable puma_slipstream_r1 0x7f0700f7
+int drawable samba_r1 0x7f0700f1
 int drawable test_level_drawable 0x7f0700eb
 int drawable tooltip_frame_dark 0x7f0700ec
 int drawable tooltip_frame_light 0x7f0700ed
+int drawable vans_oldskool_r1 0x7f0700fc
 int id ALT 0x7f080000
 int id BOTTOM_END 0x7f080001
 int id BOTTOM_START 0x7f080002

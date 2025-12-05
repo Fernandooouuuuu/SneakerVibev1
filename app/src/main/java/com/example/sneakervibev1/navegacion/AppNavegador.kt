@@ -15,6 +15,7 @@ import com.example.sneakervibev1.vistas.Productos
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.example.sneakervibev1.vistas.AdminUsuarios
 import com.example.sneakervibev1.vistas.Carga
 import com.example.sneakervibev1.vistas.Nosotros
 import com.example.sneakervibev1.vistas.Registro
@@ -50,6 +51,10 @@ fun AppNavegador(){
             composable(AppVistas.Productos.route) { Productos(navController) }
             composable(AppVistas.Nosotros.route) { Nosotros(navController) }
             composable(AppVistas.Carga.route){ Carga(navController) }
+
+            composable("adminUsuarios") {
+                AdminUsuarios(navController)
+            }
         }
     }
 }
