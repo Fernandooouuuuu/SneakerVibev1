@@ -3021,6 +3021,8 @@ drawable airforce1_r1
 drawable airmax90_r1
 drawable avd_hide_password
 drawable avd_show_password
+drawable banner1
+drawable banner_adidas
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -3270,6 +3272,7 @@ id clip_horizontal
 id clip_vertical
 id clockwise
 id closest
+id coil_request_manager
 id collapseActionView
 id compose_prefetch_scheduler
 id compose_view_saveable_id_tag

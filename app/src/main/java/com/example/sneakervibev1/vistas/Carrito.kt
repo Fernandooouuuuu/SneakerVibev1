@@ -15,6 +15,7 @@ import com.example.sneakervibev1.data.carrito.CarritoManager
 import kotlinx.coroutines.launch
 
 import com.example.sneakervibev1.data.compras.ComprasManager
+import com.example.sneakervibev1.navegacion.AppVistas
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -111,12 +112,9 @@ fun Carrito(navController: NavController) {
                         scope.launch {
                             // registrar compra local
                             ComprasManager.registrarCompra(total)
-
                             // limpiar carrito
                             CarritoManager.limpiar()
-
-                            // feedback al usuario
-                            snackbarHostState.showSnackbar("Compra realizada correctamente")
+                            navController.navigate(AppVistas.Checkout.route)
                         }
                     }) {
                         Text("Pagar")

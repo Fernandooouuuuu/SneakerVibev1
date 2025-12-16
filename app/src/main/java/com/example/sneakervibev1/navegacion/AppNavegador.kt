@@ -21,6 +21,10 @@ import com.example.sneakervibev1.vistas.Nosotros
 import com.example.sneakervibev1.vistas.Registro
 import com.example.sneakervibev1.vistas.Carrito
 import com.example.sneakervibev1.vistas.AdminCompras
+import com.example.sneakervibev1.vistas.Checkout
+
+import androidx.navigation.navArgument
+import androidx.navigation.NavType
 
 @Composable
 fun AppNavegador(){
@@ -50,14 +54,25 @@ fun AppNavegador(){
             composable(AppVistas.Login.route) {Login(navController)}
             composable(AppVistas.Registro.route)  { Registro(navController) }
             composable(AppVistas.Index.route) {Index(navController)}
-            composable(AppVistas.Productos.route) { Productos(navController) }
             composable(AppVistas.Nosotros.route) { Nosotros(navController) }
             composable(AppVistas.Carga.route){ Carga(navController) }
             composable(AppVistas.Carrito.route){Carrito(navController)}
+            composable(AppVistas.Checkout.route) { Checkout(navController) }
 
             composable("adminUsuarios") {
                 AdminUsuarios(navController)}
             composable("adminCompras") { AdminCompras(navController) }
+
+            composable(
+                route = AppVistas.Productos.route,
+                arguments = listOf(navArgument("catId") {
+                    type = NavType.IntType
+                    defaultValue = -1
+                })
+            ) { backStackEntry ->
+                val catId = backStackEntry.arguments?.getInt("catId") ?: -1
+                Productos(navController, catId)
+            }
         }
     }
 }

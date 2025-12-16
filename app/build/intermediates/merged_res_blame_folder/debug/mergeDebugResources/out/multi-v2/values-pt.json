@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.sneakervibev1.app-mergeDebugResources-61:/values-pt/values-pt.xml",
+            "outputFile": "com.example.sneakervibev1.app-mergeDebugResources-62:/values-pt/values-pt.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Fernando\\.gradle\\caches\\8.13\\transforms\\b1f62442e1aca25b817f648a5fbd7a11\\transformed\\appcompat-1.6.1\\res\\values-pt\\values-pt.xml",

@@ -2,6 +2,7 @@ package com.example.sneakervibev1.vistas
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -53,6 +54,11 @@ import com.example.sneakervibev1.data.SesionUsuario
 import com.example.sneakervibev1.navegacion.AppVistas
 import com.example.sneakervibev1.ui.model.CategoriaItem
 import com.example.sneakervibev1.ui.usuarios.UsuariosViewModel
+
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.shape.CircleShape
+import coil.compose.AsyncImage
 
 @Composable
 fun Index(navController: NavController, viewModel: UsuariosViewModel = viewModel()) {
@@ -185,14 +191,125 @@ fun Navbar(navController: NavController, esAdmin: Boolean) {
 }
 
 @Composable
+fun CarruselImagenes() {
+    val imagenes = listOf(
+        R.drawable.banner1,
+        R.drawable.banner_adidas
+    )
+    val pagerState = rememberPagerState(pageCount = { imagenes.size })
+
+    Column(modifier = Modifier.fillMaxWidth()) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(170.dp)
+
+        ) {
+            HorizontalPager(
+                state = pagerState,
+                modifier = Modifier.fillMaxSize()
+            ) { page ->
+                AsyncImage(
+                    model = imagenes[page],
+                    contentDescription = null,
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Crop
+                )
+            }
+
+            // Dots abajo al centro
+            Row(
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .padding(bottom = 10.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                repeat(imagenes.size) { i ->
+                    val selected = pagerState.currentPage == i
+                    Box(
+                        modifier = Modifier
+                            .size(if (selected) 10.dp else 8.dp)
+                            .clip(CircleShape)
+                            .background(if (selected) Color(0xFFFF2D7A) else Color(0x66FFFFFF))
+                    )
+                }
+            }
+        }
+
+        Spacer(modifier = Modifier.padding(top = 10.dp))
+    }
+}
+@Composable
+fun ProductosDestacados(navController: NavController) {
+    val destacados = listOf(
+        Pair("Nike sportwear poleron", R.drawable.nike_sportswear_club_poleron),
+        Pair("Nike Air Force 1", R.drawable.airforce1_r1),
+        Pair("Adidas Campus 00", R.drawable.campus00s_r1)
+    )
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 16.dp)
+    ) {
+        Text(
+            text = "Destacados",
+            style = MaterialTheme.typography.titleLarge,
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+        )
+
+        LazyRow(
+            contentPadding = PaddingValues(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            items(destacados) { (nombre, img) ->
+
+                Card(
+                    modifier = Modifier
+                        .width(180.dp)
+                        .clickable {
+                            navController.navigate(AppVistas.Productos.route)
+                        },
+                    colors = CardDefaults.cardColors(containerColor = Color.White),
+                    elevation = CardDefaults.cardElevation(6.dp)
+                ) {
+                    Column {
+                        Image(
+                            painter = painterResource(id = img),
+                            contentDescription = nombre,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(140.dp)
+                        )
+                        Text(
+                            text = nombre,
+                            modifier = Modifier.padding(8.dp),
+                            style = MaterialTheme.typography.titleSmall
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
 fun Categorias(
-    onCategoriaClick: (CategoriaItem) -> Unit = {}
+    navController: NavController
 ) {
     val categorias = listOf(
         CategoriaItem("Ropa", R.drawable.categoria_ropa),
         CategoriaItem("Accesorios", R.drawable.categoria_accesorios),
         CategoriaItem("Zapatillas", R.drawable.categoria_zapatillas)
     )
+
+    fun catId(nombre: String) = when (nombre) {
+        "Zapatillas" -> 1
+        "Ropa" -> 2
+        "Accesorios" -> 3
+        else -> -1
+    }
 
     Column(
         modifier = Modifier
@@ -204,7 +321,7 @@ fun Categorias(
             style = MaterialTheme.typography.titleLarge,
             modifier = Modifier
                 .padding(horizontal = 16.dp, vertical = 8.dp)
-                .align(Alignment.CenterHorizontally)
+                .align(Alignment.Start)
         )
 
         LazyRow(
@@ -217,7 +334,9 @@ fun Categorias(
             items(categorias) { cat ->
                 CategoriasCard(
                     categoria = cat,
-                    onClick = { onCategoriaClick(cat) }
+                    onClick = {
+                        navController.navigate(AppVistas.Productos.conCategoria(catId(cat.nombre)))
+                    }
                 )
             }
         }
@@ -234,7 +353,6 @@ fun CategoriasCard(
             .width(260.dp)
             .height(400.dp)
             .clickable { onClick() },
-        shape = RoundedCornerShape(14.dp),
         elevation = CardDefaults.cardElevation(8.dp)
     ) {
         Box(Modifier.fillMaxSize()) {
@@ -273,8 +391,14 @@ fun CategoriasCard(
 fun formularioIndex(navController: NavController, esAdmin: Boolean) {
     Navbar(navController, esAdmin)
     Spacer(modifier = Modifier.padding(top = 20.dp))
-    Categorias()
+    CarruselImagenes()
+    Spacer(modifier = Modifier.padding(top = 10.dp))
+    ProductosDestacados(navController)
     Spacer(modifier = Modifier.padding(top = 20.dp))
+    Categorias(navController)
+    Spacer(modifier = Modifier.padding(top = 20.dp))
+
+
 }
 
 @Composable

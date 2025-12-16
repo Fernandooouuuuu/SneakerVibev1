@@ -3020,6 +3020,8 @@ int drawable airforce1_r1 0x7f0700ef
 int drawable airmax90_r1 0x7f0700f2
 int drawable avd_hide_password 0x7f070078
 int drawable avd_show_password 0x7f070079
+int drawable banner1 0x7f0700fe
+int drawable banner_adidas 0x7f0700ff
 int drawable btn_checkbox_checked_mtrl 0x7f07007a
 int drawable btn_checkbox_checked_to_unchecked_mtrl_animation 0x7f07007b
 int drawable btn_checkbox_unchecked_mtrl 0x7f07007c
@@ -3269,6 +3271,7 @@ int id clip_horizontal 0x7f080075
 int id clip_vertical 0x7f080076
 int id clockwise 0x7f080077
 int id closest 0x7f080078
+int id coil_request_manager 0x7f080203
 int id collapseActionView 0x7f080079
 int id compose_prefetch_scheduler 0x7f08007a
 int id compose_view_saveable_id_tag 0x7f08007b

@@ -22,7 +22,7 @@ fun BarraInferior(navController: NavController){
     //orden
     val items = listOf(
         BottonNavItem(AppVistas.Index.route, "Inicio", Icons.Filled.Home),
-        BottonNavItem(AppVistas.Productos.route, "Productos", Icons.Filled.Star),
+        BottonNavItem(AppVistas.Productos.conCategoria(-1), "Productos", Icons.Filled.Star),
         BottonNavItem(AppVistas.Carrito.route,"Carrito", Icons.Filled.ShoppingCart),
         BottonNavItem(AppVistas.Nosotros.route, "Nosotros", Icons.Filled.Info),
         BottonNavItem(AppVistas.Login.route, "Login", Icons.Filled.Person)
@@ -31,30 +31,36 @@ fun BarraInferior(navController: NavController){
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
 
+
+
     NavigationBar (
         containerColor = Color.White,
         contentColor = Color.Black
     ){
         items.forEach { item ->
-            val selected  = currentRoute == item.route
+            val selected =
+                when {
+                    item.label == "Productos" -> currentRoute?.startsWith("Productos") == true
+                    else -> currentRoute == item.route
+                }
+
             NavigationBarItem(
                 selected = selected,
                 onClick = {
-                    navController.navigate(item.route){
-                        popUpTo(navController.graph.startDestinationId){ saveState = true}
+                    navController.navigate(item.route) {
+                        popUpTo(navController.graph.startDestinationId) { saveState = true }
                         launchSingleTop = true
                         restoreState = true
                     }
                 },
-                icon = { Icon(item.icon, contentDescription = item.label)},
-                label = { Text(item.label)},
+                icon = { Icon(item.icon, contentDescription = item.label) },
+                label = { Text(item.label) },
                 colors = NavigationBarItemDefaults.colors(
                     selectedIconColor = Color(0xFFEB0000),
                     selectedTextColor = Color(0xFFEB0000),
                     indicatorColor = Color(0x14EB0000)
                 )
             )
-
         }
     }
 }

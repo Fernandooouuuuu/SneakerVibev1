@@ -11,6 +11,8 @@ drawable adidas_trefoil_gorra
 drawable adidas_trefoil_polera
 drawable airforce1_r1
 drawable airmax90_r1
+drawable banner1
+drawable banner_adidas
 drawable campus00s_r1
 drawable categoria_accesorios
 drawable categoria_ropa

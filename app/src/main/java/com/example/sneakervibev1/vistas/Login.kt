@@ -177,12 +177,18 @@ fun formulario(navController: NavController){
             loading = false
 
             if (usuario != null) {
-                // 👉 guardar en sesión
                 SesionUsuario.usuarioActual = usuario
 
-                // navegar al Index
-                navController.navigate(AppVistas.Index.route) {
+                // 1) Ir a Carga
+                navController.navigate(AppVistas.Carga.route) {
                     popUpTo(AppVistas.Login.route) { inclusive = true }
+                    launchSingleTop = true
+                }
+
+                // 2) Esperar 3s y luego ir a Index
+                kotlinx.coroutines.delay(3000)
+                navController.navigate(AppVistas.Index.route) {
+                    popUpTo(AppVistas.Carga.route) { inclusive = true }
                     launchSingleTop = true
                 }
             } else {
